@@ -1,0 +1,68 @@
+Import ISIL.io
+Import ISIL.lang
+Import ISIL.io // Erreur : bibliothèque déjà importée (import multiple)
+
+Program isislA12 // Erreur : IDF commence par miniscule 
+Program TestProgram_isil-A_groupe1_groupe2_ // Erreur : Depassement de taille de IDF
+Program Isil_A_G1_G2 // correcte
+PDec
+   
+    Integer A|Cpt|I; // decalaration de plusieurs var sur meme ligne
+    Float B|F;
+    final Integer C;
+    final Float D=10;
+    Float B|F; // double declaration 
+    Integer Tableau1[5]|Tableau2[3];
+
+InDebut
+    
+    Input("%d", A);
+    Input("%f", B);
+    Input("%f ",A); // incompatibilite de type 
+    Input("%f %d",Cpt); // manque d'une variable + incompatibilite de type 
+    
+
+   
+    A <-- A + 5;
+    B <-- A / 2.0;
+    Tableau[0] <-- A * 2;// tableau non declaré
+    A <-- 2*Cpt +B;
+    B <-- (-3)*F-(+8)\2;
+    Cpt <-- Tableau1[2];
+
+
+    Write("La valeur de A est: %d", A);
+    Write("La valeur de B est: %f", B);
+    Write("La valeur de X est: %d", X);  // variable non declaré
+    Write("signe de formatages %d et %d ",B,A); // incompatibilite de type
+
+    // Structure conditionnelle
+    If (A < 10) DO
+        Write("A est inférieur à 10");
+    ELSE
+        Write("A est supérieur ou égal à 10");
+    ENDIF;
+
+    // Boucle FOR
+    For (I <-- 0; I < 5; I++) DO
+        Tableau[1] <-- I * 2;
+        Write("Tableau[1]: %d", Tableau[1]);
+    ENDFOR;
+
+    // Calculs avec opérateurs arithmétiques et logiques
+    If ((A > 5) && (B < 20.0)) DO
+        Write("Conditions vérifiées");
+    
+
+    // Dépassement de tableau (test d'erreur)
+    Tableau[6] <-- 10; // Erreur : dépassement
+
+    // Modification d'une constante (test d'erreur)
+    C <--20; // Erreur : constante modifiée
+
+    // Utilisation d'une variable non déclarée (test d'erreur)
+    Input("%d", NonDeclaree); // Erreur : variable non déclarée
+    
+    ENDIF;
+
+InFin.
